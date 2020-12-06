@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/paginaProfe.css}"/>
+    <title>Document</title>
+</head>
+<body>
+    <section id="HEADER">
+        <nav id="nav1">
+            <a th:href="@{/VerProfesor}" id="ini">inicio</a>
+            
+            <a id="ayu" type="button" data-toggle="modal" data-target="#ventanaAyuda">ayuda</a>
+            
+            <div class="derecha">
+                <a href="" id="nom"><span th:utext="${#request.userPrincipal.name}"></span></a>
+                <a th:href="@{/}" id="sal">salir</a>
+            </div>
+        </nav>
+        
+        
+        <nav id="nav2">
+            <p id="titulo">Aula Virtual</p>
+            <div id="pestannas">
+                <a th:href="@{misDatos}" id="misDatos">Mis Datos</a>
+                <a th:href="@{misSecciones}" id="misSecciones">Mis Secciones</a>
+            </div>
+        </nav>
+    </section>
+    <!--datos del profesor-->
+    <div id="datosGenerales">
+        
+        <section id="datos">
+            <p id="datosProfT">Datos del profesor</p>
+            <!--primera fila-->
+            <div id="fila1">
+                <div id="cod">
+                    <p><strong>Codigo</strong></p>
+                    <textarea type="text" id="codigoAlumno" th:utext="${datosA.codigo}" disabled></textarea>
+                </div>
+                <div id="namae">
+                    <p><strong>Nombres</strong></p>
+                    <textarea type="text" id="nombreProf" th:utext="${datosA.nombres}" disabled></textarea>
+                </div>
+                <div id="famName">
+                    <p><strong>Apellidos</strong></p>
+                    <textarea type="text" id="apeProf" th:utext="${datosA.apellidos}" disabled></textarea>
+                </div>
+            </div>
+
+            <br>
+            <br>
+            <br>
+            <br>    
+            <!--fila 2 de datos-->
+            <div id="fila2">
+                <div id="Umail">
+                    <p><strong>Correo Universitario</strong></p>
+                    <textarea type="text" id="correoUniv" th:utext="${datosA.correoUniversidad}" disabled></textarea>
+                </div>
+                <div id="Pmail">
+                    <p><strong>Correo personal</strong></p>
+                    <textarea type="text" id="correoPer" th:utext="${datosA.correoPersonal}" ></textarea>
+                </div>
+                <div id="gene">
+                    <p><strong>Genero</strong></p>
+                    <textarea type="text" id="generoAlumno" th:utext="${datosA.genero}" disabled></textarea>
+                </div>
+            </div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <!--fila 3 de datos-->
+            <div id="fila3">
+                <div id="pais">
+                    <p><strong>País</strong></p>
+                    <textarea type="text" id="paisProf" th:utext="${datosA.pais}" disabled></textarea>
+                </div>
+                <div id="Tdocente">
+                    <p><strong>Tipo de docente</strong></p>
+                    <textarea type="text" id="type" th:utext="${datosA.ttid}" disabled></textarea>
+                    <button id="actualizar"> actualizar datos </button>
+                </div>
+            </div>
+            <br>
+            <br>
+            <br>
+            <br>
+        </section>
+        <section id="imagen">
+            <img src="img/imagenMuestra.jpg">
+        </section>
+    </div>
+    <footer>Universidad de lima 2020-II</footer>
+
+
+    <!--ventana modal de ayuda-->
+    <div class="modal fade" id="ventanaAyuda" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Integrantes del grupo</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">x</span>
+            </button>
+            </div>
+            <div class="modal-body">
+                <div id="ian">
+                    <img src="/LogIn/img/imagenMuestra.jpg">
+                    <p>Ian Bustinza</p>
+                </div>
+                <div id="mendoza">
+                    <img src="/LogIn/img/imagenMuestra.jpg">
+                    <p>Diego Mendoza</p>
+                </div>
+                <div id="leo">
+                    <img src="/LogIn/img/imagenMuestra.jpg">
+                    <p>Leonardo Sipion</p>
+                </div>
+                <div id="paz">
+                    <img src="/LogIn/img/imagenMuestra.jpg">
+                    <p>Diego Paz</p>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+</body>
+</html>

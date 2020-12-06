@@ -1,0 +1,65 @@
+body {
+    background-color: rgb(250, 231, 209);
+}
+#nav1 {
+    overflow: hidden;
+    background-color: black;
+}
+nav a {
+    color: #2196f3;
+    float: left;
+    text-align: center;
+    padding: 5px 16px;
+    text-decoration: none;
+}
+#ayu {
+    color: #2196f3;
+}
+a:hover {
+    text-decoration: none;
+    color: #1a5381;
+}
+#ayu:hover {
+    text-decoration: none;
+    color: #1a5381;
+}
+
+#sal {
+    padding-right: 30px;
+}
+.derecha {
+    float: right;
+}
+
+#titulo {
+    clear: both;
+    font-size: 2rem;
+    color: white;
+    background-color: rgb(79, 81, 92);
+    padding: 10px 20px;
+}
+
+#pestannas {
+    position: absolute;
+    left: 200px;
+    top: 57px;
+}
+
+#datosGenerales {
+    margin-left: 30px;
+    background-color: white;
+    margin-right: 30px;
+}
+#datos {
+    margin-left: 10px;
+}
+
+#datosProfT {
+    font-size: 2rem;
+}
+
+footer {
+    float: right;
+    margin-right: 33px;
+}
+

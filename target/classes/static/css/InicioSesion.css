@@ -1,0 +1,65 @@
+*{
+    font-size: 12px;
+    background-color: white;
+}
+body{
+    background-color: blue;
+}
+
+#IniciarSesion{
+    position: fixed;
+    top: 30px;
+    left: 50%;
+    transform: translate(-50%);
+    border: 1px solid grey;
+    width: 180px;
+    height: 200px;
+}
+
+img{
+    position: fixed;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -10%);
+}
+
+#Usuario, #Contraseña{
+    position: relative;
+    top: 100px;
+    text-align: center;
+}
+
+#Contraseña{
+    margin-top: 2px;
+}
+
+nav{
+    position: relative;
+    top: 100px;
+    margin-top: 2px;
+}
+
+#a1, #a2{
+    width: 100%;
+    position: relative;
+    text-decoration: none;
+    color: rgba(150, 150, 255, 1);
+}
+#a1{
+    left: 10%;
+}
+#a2{
+    margin-left: 47px;
+}
+
+#Boton, #Boton2{
+    position: relative;
+    top: 100px;
+    left: 50%;
+    transform: translate(-50%);
+    margin-top: 2px;
+    width: 80%;
+    color: white;
+    padding: 2px 0px;
+    background-color: blue;
+}

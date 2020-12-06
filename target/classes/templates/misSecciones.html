@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity">
+    <head>
+        <title>mis secciones</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" th:href="@{/css/AdminVerProfesores.css}"/>
+    </head>
+    <body>
+        <section id="HEADER">
+            <nav id="nav1">
+                <a th:href="@{misDatos}" id="ini">inicio</a>
+
+                <a id="ayu" type="button" data-toggle="modal" data-target="#ventanaAyuda">ayuda</a>
+
+                <div class="derecha">
+                    <a href="" id="nom"><span th:utext="${#request.userPrincipal.name}"></span></a>
+                    <a th:href="@{/}" id="sal">salir</a>
+                </div>
+            </nav>
+
+
+            <nav id="nav2">
+                <p id="titulo">Aula Virtual</p>
+                <div id="pestannas">
+                    <a th:href="@{misDatos}" id="misDatos">Mis Datos</a>
+                    <a th:href="@{misSecciones}" id="misSecciones">Mis Secciones</a>
+                </div>
+            </nav>
+        </section>
+        
+        <div id="datosGenerales">
+            <section id="datos">
+                <p id="datosProfT">Mis Secciones</p>
+
+                <div th:each="p : ${paginationProducts}">
+                    <ul>
+                        <p>
+                            <span th:utext="${p.codigo}"></span>
+                            <span th:utext="${p.courseid}"></span>
+                            <span th:utext="${p.periodid}"></span>
+                        </p>
+                    </ul>
+                </div>
+
+                <br>
+                <div class="page-navigator" th:if="${totalPages > 1}">
+                  <th:block th:each="pag : ${navigationPages}">
+                      <a class="nav-item" 
+                         th:href="@{|/gSecciones?page=${pag}|}" 
+                         th:if="${pag != -1}" th:utext="${pag}">
+                      </a>
+
+                      <span class="nav-item" th:if="${pag == -1}"> ... </span>
+
+                  </th:block>
+                </div>
+
+                <div>
+                    <a id="" th:href="@{crearSeccion}">Agregar Seccion</a>
+                </div>
+
+            </section>
+        </div>
+        <footer>Universidad de lima 2020-II</footer>
+        <!--ventana modal de ayuda-->
+    <div class="modal fade" id="ventanaAyuda" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Integrantes del grupo</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">x</span>
+            </button>
+            </div>
+            <div class="modal-body">
+                <div id="ian">
+                    <img src="img/imagenMuestra.jpg">
+                    <p>Ian Bustinza</p>
+                </div>
+                <div id="mendoza">
+                    <img src="img/imagenMuestra.jpg">
+                    <p>Diego Mendoza</p>
+                </div>
+                <div id="leo">
+                    <img src="img/imagenMuestra.jpg">
+                    <p>Leonardo Sipion</p>
+                </div>
+                <div id="paz">
+                    <img src="img/imagenMuestra.jpg">
+                    <p>Diego Paz</p>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+    </body>
+</html>
