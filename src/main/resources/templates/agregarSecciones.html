@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/AdminVerProfesores.css}" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    
+    <title>Document</title>
+</head>
+<body>
+    <section id="HEADER">
+        <nav id="nav1">
+            <a th:href="@{info}" id="ini">inicio</a>
+            <!--VENTANA MODAL-->
+            <a id="ayu" type="button" data-toggle="modal" data-target="#ventanaAyuda">ayuda</a>
+            <div class="derecha">
+                <a id="nom"><span th:utext="${#request.userPrincipal.name}"></span></a> <!--th:utext="${#request.userPrincipal.name}"-->
+                <a th:href="@{logout}" id="sal">salir</a>
+            </div>
+        </nav>
+        <nav id="nav2">
+            <p id="titulo">Aula Virtual</p>
+            <div id="pestannas">
+                <a th:href="@{gProfes}">Profesores</a>
+                <a th:href="@{gAlumnos}">Alumnos</a>
+                <a th:href="@{gCursos}">Cursos</a>
+                <a th:href="@{gSecciones}">Secciones</a>
+            </div>
+        </nav>
+    </section>
+    <section id="DATOS">
+        <h1>Datos de la nueva seccion</h1>
+        <form method="POST" th:object="${sForm}" th:action="@{crearSeccion}"><!--th:object="${AlumnoForm}" th:action="@{/crearAlumno}"-->
+            <input th:field="${sForm.newSeccion}" type="hidden" /> <!--th:object="${ProfesorForm}" method="POST" action="@{/agregarProfe}">-->
+        <div>
+            <p>Código</p>
+            <input type="text" th:field="*{codigo}">
+            <p>id del curso</p>
+            <input type="text" th:field="*{courseid}">
+            <p>Periodo académico</p>
+            <input type="text" th:field="*{periodid}">
+        </div>
+        <div>
+                <input type="submit" value="crearProfesor" />
+                <input type="reset"  value="Limpiar" />
+        </div>
+        
+        </form>
+    </section>
+    <footer>Universidad de lima 2020-II</footer>
+    <!--ventana modal de ayuda-->
+    <div class="modal fade" id="ventanaAyuda" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Integrantes del grupo</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">x</span>
+            </button>
+            </div>
+            <div class="modal-body">
+                <div id="ian">
+                    <img src="img/imagenMuestra.jpg">
+                    <p>Ian Bustinza</p>
+                </div>
+                <div id="mendoza">
+                    <img src="img/imagenMuestra.jpg">
+                    <p>Diego Mendoza</p>
+                </div>
+                <div id="leo">
+                    <img src="img/imagenMuestra.jpg">
+                    <p>Leonardo Sipion</p>
+                </div>
+                <div id="paz">
+                    <img src="img/imagenMuestra.jpg">
+                    <p>Diego Paz</p>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+</body>
+</html>

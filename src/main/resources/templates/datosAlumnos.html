@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/paginaAlumno.css}"/>
+    <title>portal alumno</title>
+</head>
+<body>
+    
+    <nav>
+        <a th:href="@{/studentInfo}" id="ini">inicio</a>
+        
+        <!--VENTANA MODAL-->
+        <a id="ayu" type="button" data-toggle="modal" data-target="#ventanaAyuda">ayuda</a>
+        
+        
+        <div class="derecha">
+            <a id="nom" href=""><span th:utext="${#request.userPrincipal.name}"></span></a> <!--th:utext="${#request.userPrincipal.name}"-->
+            <a th:href="@{/logout}" id="sal">salir</a>
+        </div>
+    </nav>
+
+    <p id="titulo"> Aula Virtual </p>
+    <br>
+
+    <!--DONDE SE COLOCAN LOS DATOS DEL ALUMNO-->
+    <div id="datosGenerales">
+        <section id="datos">
+            <p>datos del alumno</p>
+
+            <!--fila 1 de datos-->
+            <div id="fila1">
+                <div id="cod">
+                    <p>codigo</p>
+                    
+                    <textarea type="text" id="codigoAlumno" th:utext="${datosA.codigo}" disabled></textarea>
+                </div>
+                <div id="namae">
+                    <p>nombres</p>
+                    <textarea type="text" id="nombresAlumno" disabled th:utext="${datosA.nombres}"></textarea>
+                </div>
+                <div id="famName">
+                    <p>Apellidos</p>
+                    <textarea type="text" id="nombresAlumno" disabled th:utext="${datosA.apellidos}"></textarea>
+                </div>
+            </div>
+            <br>
+            <br>
+            <br>
+            <br>    
+            <!--fila 2 de datos-->
+            <div id="fila2">
+                <div id="Umail">
+                    <p>correo de la universidad</p>
+                    <textarea type="text" id="nombresAlumno" disabled th:utext="${datosA.correoUniversidad}"></textarea>
+                </div>
+                <div id="Pmail">
+                    <p>correo personal</p>
+                    <textarea type="text" id="nombresAlumno" disabled th:utext="${datosA.correoPersonal}"></textarea>
+                </div>
+                <div id="gene">
+                    <p>genero</p>
+                    <textarea type="text" id="nombresAlumno" disabled th:utext="${datosA.genero}"></textarea>
+                </div>
+            </div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <!--fila 3 de datos-->
+            <div id="fila3">
+                <div id="pais">
+                    <p>pais</p>
+                    <textarea type="text" id="nombresAlumno" disabled th:utext="${datosA.pais}"></textarea>
+                </div>
+                <div id="Uteam">
+                    <p>usuario teamViewer</p>
+                    <input type="text" id="nombresAlumno" th:utext="${datosA.codteam}">
+                </div>
+                <div id="anydesk">
+                    <p>credencial anydesk</p>
+                    <input type="text" id="nombresAlumno" th:utext="${datosA.codany}">
+                </div>
+            </div>
+            <br>
+            <br>
+            <br>
+            <br>
+
+            <!--fila 4 de datos-->
+            <div id="fila4">
+                <div id="car">
+                    <p>carrera</p>
+                    <select type="text" id="carreraAlumno"></select>
+                </div>
+
+                <button id="actualizar"> actualizar datos </button>
+            </div>
+        </section>
+        
+
+        <section id="imagen">
+            <img src="img/imagenMuestra.jpg">
+        </section>
+    </div>
+    <footer>Universidad de lima 2020-II</footer>
+
+    <!--ventana modal de ayuda-->
+    <div class="modal fade" id="ventanaAyuda" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Integrantes del grupo</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">x</span>
+            </button>
+            </div>
+            <div class="modal-body">
+                <div id="ian">
+                    <img src="img/imagenMuestra.jpg">
+                    <p>Ian Bustinza</p>
+                </div>
+                <div id="mendoza">
+                    <img src="img/imagenMuestra.jpg">
+                    <p>Diego Mendoza</p>
+                </div>
+                <div id="leo">
+                    <img src="img/imagenMuestra.jpg">
+                    <p>Leonardo Sipion</p>
+                </div>
+                <div id="paz">
+                    <img src="img/imagenMuestra.jpg">
+                    <p>Diego Paz</p>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+</body>
+</html>
